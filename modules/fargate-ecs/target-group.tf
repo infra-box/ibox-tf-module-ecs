@@ -1,6 +1,6 @@
 resource "aws_lb_target_group" "tg" {
 
-  name = "${var.name}-tg-${var.environment}"
+  name = "${var.service}-tg-${var.environment}"
 
   port        = var.port
   protocol    = var.protocol
