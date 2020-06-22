@@ -1,6 +1,3 @@
-variable "name" {
-  default = "tg"
-}
 variable "environment" {}
 variable "prefix" {
   default = "tg-"
@@ -69,4 +66,51 @@ variable "certificate_arn" {
 }
 variable "default_action" {
   default = "forward"
+}
+
+###########################################################
+variable "service" {}
+variable "app_count" {
+  description = "Number of docker containers to run"
+  default     = 2
+}
+variable "fargate_cpu" {
+  description = "Fargate instance CPU units to provision (1 vCPU = 1024 CPU units)"
+  default     = "1024"
+}
+variable "fargate_memory" {
+  description = "Fargate instance memory to provision (in MiB)"
+  default     = "2048"
+}
+variable "memory_reservation" {
+  description = "fargate soft limit (MIB)"
+  default     = "1000"
+}
+variable "service_policy" {
+  default = null
+}
+variable "ecr_url" {
+  default = null
+}
+variable "aws_region" {}
+variable "env_variables" {
+  type = list(object({
+    name  = string
+    value = string
+  }))
+  default = []
+}
+
+variable "secrets" {
+  type = list(object({
+    name      = string
+    valueFrom = string
+  }))
+  default = []
+}
+variable "image" {
+  default = null
+}
+variable "image_tag" {
+  default = null
 }
