@@ -114,3 +114,21 @@ variable "image" {
 variable "image_tag" {
   default = null
 }
+
+########################################################
+
+variable "cluster_id" {}
+variable "private_subnets_ids" {}
+variable "dependencies" {
+  default = null
+}
+variable "with_service_discovery" {
+  default = "NO"
+}
+variable "service_discovery_service_arn" {
+  default = null
+}
+variable "health_check_period" {
+  default = 0
+}
+variable "ingress_traffic_from_cidr_blocks" {}
