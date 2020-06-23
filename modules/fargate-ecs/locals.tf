@@ -1,5 +1,5 @@
 locals {
-  image = var.ecr_url != null ? "${var.ecr_url}:${var.image_tag}" : var.image
+  image = var.ecr_url == null ? var.image : "${var.ecr_url}:${var.image_tag}"
   secrets                   = var.secrets
   env_variables             = var.env_variables
   secrets_json_map          = jsonencode(local.secrets)
