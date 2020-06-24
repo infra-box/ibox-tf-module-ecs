@@ -1,10 +1,10 @@
 resource "aws_security_group" "service" {
-  name        = "allow_tls"
-  description = "Allow TLS inbound traffic"
+  name        = "${var.service}-sg"
+  description = "Allow ${var.port} inbound traffic"
   vpc_id      = var.vpc_id
 
   ingress {
-    description = "TLS from VPC"
+    description = "${var.port} from VPC"
     from_port   = var.port
     to_port     = var.port
     protocol    = "tcp"

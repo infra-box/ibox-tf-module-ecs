@@ -30,9 +30,6 @@ variable "health_check_interval" {
 variable "health_check_path" {
   default = "/actuator/healthcheck"
 }
-variable "health_check_port" {
-  default = 80
-}
 variable "health_check_protocol" {
   default = "HTTP"
 }
@@ -132,3 +129,16 @@ variable "health_check_period" {
   default = 0
 }
 variable "ingress_traffic_from_cidr_blocks" {}
+
+########################################################
+
+variable "dns_namaspace_id" {}
+variable "routing_policy" {
+  default = null
+}
+variable "ttl" {
+  default = 0
+}
+variable "dns_record_type" {
+  default = "A"
+}
