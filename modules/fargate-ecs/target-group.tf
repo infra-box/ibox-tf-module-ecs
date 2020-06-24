@@ -21,7 +21,7 @@ resource "aws_lb_target_group" "tg" {
     content {
       enabled             = var.health_check
       interval            = var.health_check_interval
-      port                = var.health_check_port
+      port                = var.port
       timeout             = var.health_check_timeout
       healthy_threshold   = var.health_check_healthy_threshold
       unhealthy_threshold = var.health_check_unhealthy_threshold
