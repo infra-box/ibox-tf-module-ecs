@@ -120,7 +120,7 @@ variable "dependencies" {
   default = null
 }
 variable "with_service_discovery" {
-  default = "NO"
+  default = true
 }
 variable "service_discovery_service_arn" {
   default = null

@@ -19,7 +19,7 @@ resource "aws_security_group" "service" {
   }
 
   tags = {
-    Name = "allow_tls"
+    Name = "${var.service}-sg"
   }
 }
 
@@ -52,9 +52,9 @@ resource "aws_ecs_service" "default" {
   }
 
   dynamic "service_registries" {
-    for_each = var.with_service_discovery == "YES" ? [1] : []
+    for_each = var.with_service_discovery == true ? [1] : []
     content {
-      registry_arn = var.service_discovery_service_arn
+      registry_arn = aws_service_discovery_service.this.arn
     }
   }
 
